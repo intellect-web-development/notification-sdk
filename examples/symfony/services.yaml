@@ -1,0 +1,9 @@
+# Фрагмент config/services.yaml продукта после opt-in Notification.
+# Полный чеклист: sibling notification/INTEGRATION.md
+
+services:
+    IWD\NotificationSdk\NotificationClient:
+        arguments:
+            $httpClient: '@http_client'
+            $baseUrl: '%env(NOTIFICATION_BASE_URL)%'
+            $token: '%env(PLATFORM_SERVICE_TOKEN)%'
