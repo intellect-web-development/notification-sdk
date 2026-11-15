@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Common\Notification;
+namespace IWD\NotificationSdk\Examples\Symfony;
 
 use IWD\NotificationSdk\NotificationClient;
 use IWD\NotificationSdk\Recipient;
 
 /**
  * Пример адаптера продукта: единственная точка HTTP-связи с Notification.
- * Скопировать в продукт при opt-in; домен NotificationClient не импортирует.
+ * В продукте копируйте в App\Common\Notification (или свой BC) при opt-in; домен NotificationClient не импортирует.
  *
  * Команды ensureRecipient и send продукт кладёт в шину классами
  * IWD\NotificationSdk\Message\Command\* на транспорт notification-commands-transport.
