@@ -9,10 +9,11 @@ use IWD\NotificationSdk\Recipient;
 
 /**
  * Пример адаптера продукта: единственная точка HTTP-связи с Notification.
- * В продукте копируйте в App\Common\Notification (или свой BC) при opt-in; домен NotificationClient не импортирует.
+ * В продукте копируйте в App\PlatformProjection\Notification (или свой BC) при opt-in; домен NotificationClient не импортирует.
  *
- * Команды ensureRecipient и send продукт кладёт в шину классами
+ * Команды ensureRecipient, send и sendToAddress продукт кладёт в шину классами
  * IWD\NotificationSdk\Message\Command\* на транспорт notification-commands-transport.
+ * HTML письма собирает сервис из полей. sendToAddress — адрес напрямую, без userId.
  * Если сервис недоступен, исключение клиента уходит наверх: кабинет отвечает 502.
  */
 final readonly class NotificationGateway

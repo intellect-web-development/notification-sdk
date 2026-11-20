@@ -7,8 +7,8 @@ namespace IWD\NotificationSdk\Message\Command;
 use Symfony\Component\Messenger\Attribute\AsMessage;
 
 /**
- * Отправить уже собранное письмо и/или текст Telegram.
- * Сервис сам выбирает адрес. Выключенный или неизвестный Customer — ack без отправки.
+ * Отправить письмо и/или текст Telegram.
+ * Сервис сам выбирает адрес и собирает HTML. Выключенный или неизвестный Customer — ack без отправки.
  */
 #[AsMessage(
     transport: 'notification-commands-transport',
@@ -34,6 +34,8 @@ readonly class SendMessage
         public ?string $emailMistake = null,
         public bool $emailNeedUnsubscribe = false,
         public ?string $telegramText = null,
+        public ?string $appName = null,
+        public ?string $appUrl = null,
     ) {
     }
 }
